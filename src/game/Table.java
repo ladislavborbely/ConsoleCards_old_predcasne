@@ -3,12 +3,11 @@ package game;
 import java.util.ArrayList;
 
 /**
+ * Class that shows graphical representation cards of players hand in
+ * 
  * 
  * @author Ladislav Borbely
- * @version 0.1 (24. 7. 2017)
- *
- *          Class that shows graphical representation cards of players hand in
- *          console.
+ * @version 0.1 (24. 7. 2017) console.
  */
 
 public class Table {
@@ -23,11 +22,12 @@ public class Table {
 		half[2] = "┃ " + value + "  ";
 		half[3] = "┃     ";
 		half[4] = "┃     ";
-		half[5] = "┃     ";
-		half[6] = "┃     ";
+		half[5] = "⎢     ";
+		half[6] = "⎢     ";
 		half[7] = "┃     ";
 		half[8] = "┗━━━━━━━";
 		return half;
+
 	}
 
 	private String[] printHalfCardright(char color, String value) {
