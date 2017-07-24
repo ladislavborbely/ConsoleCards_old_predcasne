@@ -48,12 +48,14 @@ public class Play {
 			playerHandHuman.showHandSimple();
 			playerHandHuman.showHandAdvanced();
 
+			System.out.println("");
+			System.out.println("Ai turn...");
 			if (ai.wantNextCard()){
 				playerHandPc.addCard(deck.getNextCard());
 				System.out.println(playerHandPc.getHandOwner() + ": More please.");
 				System.out.println();
 			} else {
-				System.out.println(playerHandHuman.getHandOwner() + ": Enough.");
+				System.out.println(playerHandPc.getHandOwner() + ": Enough.");
 				System.out.println();
 			}
 			playerHandPc.showHandSimple();
