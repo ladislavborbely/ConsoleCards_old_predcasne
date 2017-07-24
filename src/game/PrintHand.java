@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @version 0.1 (24. 7. 2017) console.
  */
 
-public class Table {
+public class PrintHand {
 
 	private String[] generateHalfCardLeft(char color, String value) {
 		String[] half = new String[9];

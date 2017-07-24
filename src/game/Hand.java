@@ -39,7 +39,7 @@ public class Hand {
 	}
 
 	public void showHandAdvanced() {
-		Table show = new Table();
+		PrintHand show = new PrintHand();
 		show.printHandRepresentation(handCards);
 	}
 
