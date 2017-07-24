@@ -4,6 +4,7 @@ import game.enums.CardColor;
 import game.enums.CardType;
 
 /**
+ * Single card and all its values (color number value)
  * 
  * @author Ladislav Borbely
  * @version 0.1 (23. 7. 2017)

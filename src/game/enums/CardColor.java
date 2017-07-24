@@ -1,6 +1,7 @@
 package game.enums;
 
 /**
+ * Card color (and symbol)
  * 
  * @author Ladislav Borbely
  * @version 0.1 (23. 7. 2017)

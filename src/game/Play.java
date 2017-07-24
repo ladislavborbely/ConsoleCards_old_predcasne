@@ -7,6 +7,8 @@ import game.ai.AiSimple;
 
 /**
  * 
+ * Simple game logic, for now just a test of other classes!
+ * 
  * @author Ladislav Borbely
  * @version 0.1 (23. 7. 2017)
  *

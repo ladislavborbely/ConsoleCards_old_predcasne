@@ -3,6 +3,7 @@ package game.ai;
 import game.Hand;
 
 /**
+ * Simple computer player if hand value < 14 ask for another card
  * 
  * @author Ladislav Borbely
  * @version 0.1 (23. 7. 2017)

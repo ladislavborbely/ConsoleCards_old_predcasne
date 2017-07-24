@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * 
+ * Cards held in player hand.
+ * 
  * @author Ladislav Borbely
  * @version 0.1 (23. 7. 2017)
  *
@@ -40,9 +42,12 @@ public class Hand {
 		return name;
 	}
 
+	public ArrayList<Card> getHandCards() {
+		return handCards;
+	}
+
 	public void discardCards() {
 		handCards.clear();
 		System.out.println(name + " has empty hand value: " + value);
 	}
-
 }
