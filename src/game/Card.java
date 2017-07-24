@@ -6,11 +6,10 @@ import game.enums.CardType;
 /**
  * 
  * @author Ladislav Borbely
- * @version 0.1
- * 
- *        Prazdna karta
+ * @version 0.1 (23. 7. 2017)
  *
  */
+
 public class Card {
 	private String name; //  7,8,9,10,J,Q,K,A
 	private CardColor color; // srdce ♥,pika ♠,kriz ♣,karo ♦

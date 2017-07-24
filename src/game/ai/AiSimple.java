@@ -2,6 +2,14 @@ package game.ai;
 
 import game.Hand;
 
+/**
+ * 
+ * @author Ladislav Borbely
+ * @version 0.1 (23. 7. 2017)
+ *
+ */
+
+
 public class AiSimple {
 	private Hand hand;
 

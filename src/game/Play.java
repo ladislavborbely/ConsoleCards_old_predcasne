@@ -8,7 +8,7 @@ import game.ai.AiSimple;
 /**
  * 
  * @author Ladislav Borbely
- * @version 0.1
+ * @version 0.1 (23. 7. 2017)
  *
  */
 

@@ -9,10 +9,10 @@ import game.enums.CardType;
 /**
  * 
  * @author Ladislav Borbely
- * @version 0.1
- * @since 23. 7. 2017
+ * @version 0.1 (23. 7. 2017)
  *
  */
+
 public class Deck {
 	private ArrayList<Card> deck = new ArrayList<>();
 	private ArrayList<Card> shuffledDeck = new ArrayList<>();

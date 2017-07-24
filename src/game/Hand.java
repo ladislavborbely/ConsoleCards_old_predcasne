@@ -5,9 +5,10 @@ import java.util.ArrayList;
 /**
  * 
  * @author Ladislav Borbely
- * @version 0.1
+ * @version 0.1 (23. 7. 2017)
  *
  */
+
 public class Hand {
 	private int value = 0;
 	private ArrayList<Card> handCards = new ArrayList<>();
