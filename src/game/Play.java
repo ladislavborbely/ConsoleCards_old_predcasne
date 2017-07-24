@@ -9,7 +9,6 @@ import game.ai.AiSimple;
  * 
  * @author Ladislav Borbely
  * @version 0.1
- * @since 23. 7. 2017
  *
  */
 
