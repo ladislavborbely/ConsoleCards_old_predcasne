@@ -13,9 +13,9 @@ import game.enums.CardType;
  *
  */
 public class Card {
-	private String name; // "meno" - teda oznacenie 7,8,9,10,J,Q,K,A
+	private String name; //  7,8,9,10,J,Q,K,A
 	private CardColor color; // srdce ♥,pika ♠,kriz ♣,karo ♦
-	private char symbolOfColor; // znak "farby"
+	private char symbolOfColor;
 	private byte value; //hodnota karty
 
 	public Card(CardType nameValue, CardColor color) {
