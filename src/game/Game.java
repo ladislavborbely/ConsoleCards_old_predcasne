@@ -31,7 +31,7 @@ public class Game {
 
 		System.out.println("══════════════════════════ End of round " + round++ + "══════════════════════════");
 
-		while (playerHandHuman.getValue() < 22 || playerHandPc.getValue() < 22) {//len skuska ci funguju veci
+		while (playerHandHuman.getValue() < 22 && playerHandPc.getValue() < 22) {//len skuska ci funguju veci
 
 			System.out.println("\"n\" for next card else for stop ...");
 			if (sc.nextLine().equals("n")) {
