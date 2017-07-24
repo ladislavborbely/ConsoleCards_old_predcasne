@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Table {
 
-	private String[] printHalfCardLeft(char color, String value) {
+	private String[] generateHalfCardLeft(char color, String value) {
 		String[] half = new String[9];
 		if (value.length() == 1) {
 			value += " "; // other than 10
@@ -30,7 +30,7 @@ public class Table {
 
 	}
 
-	private String[] printHalfCardright(char color, String value) {
+	private String[] generateHalfCardright(char color, String value) {
 		String[] half = new String[9];
 		if (value.length() == 1) {
 			value += " "; // other than 10
@@ -47,7 +47,7 @@ public class Table {
 		return half;
 	}
 
-	private String[] printMidCard() {
+	private String[] generateMidCard() {
 		String[] half = new String[9];
 
 		half[0] = "╦"; //8
@@ -81,13 +81,13 @@ public class Table {
 		String allCards[] = { "╔", "║", "║", "║", "║", "║", "║", "║", "╚" };//first part
 		for(Card card: hand){
 			if (allCards[0].length() == 1) {//at the beginning the start is set
-				allCards = mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
+				allCards = mergeCards(allCards, generateHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
 			} else {//else add middle part
-				mergeCards(allCards, printMidCard());
-				mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
+				mergeCards(allCards, generateMidCard());
+				mergeCards(allCards, generateHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
 			}
 		}
-		allCards = mergeCards(allCards, printHalfCardright(hand.get(hand.size() - 1).getSymbolOfColor(), hand.get(hand.size() - 1).getSymbol()));//finish the card
+		allCards = mergeCards(allCards, generateHalfCardright(hand.get(hand.size() - 1).getSymbolOfColor(), hand.get(hand.size() - 1).getSymbol()));//finish the card
 
 		for (String row : allCards) {
 			System.out.println(row);
