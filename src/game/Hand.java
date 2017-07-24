@@ -43,7 +43,7 @@ public class Hand {
 		show.printHandRepresentation(handCards);
 	}
 
-	public String getHandOwner() {
+	public String getHandOwnerName() {
 		return name;
 	}
 

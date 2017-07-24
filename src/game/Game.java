@@ -19,51 +19,54 @@ public class Game {
 	private Scanner sc = new Scanner(System.in);
 	private Hand playerHandHuman = new Hand("Laco");
 	private Hand playerHandPc = new Hand("Ai simple");
+	private Deck deck = new Deck();
 
 	public void run() {
-
-		Deck deck = new Deck();
 		AiSimple ai = new AiSimple(playerHandPc);
 		int round = 1;
 
 		deck.generate();
 		deck.shuffle();
-
-		//prve rozdanie
-		playerHandPc.addCard(deck.getNextCard());
-		playerHandHuman.addCard(deck.getNextCard());
-
-		playerHandHuman.showHandAdvanced();
-		playerHandPc.showHandAdvanced();
+		dealFirstRound();
 
 		System.out.println("══════════════════════════ End of round " + round++ + "══════════════════════════");
 
-		while (true) {//len skuska ci funguju veci
+		while (playerHandHuman.getValue() < 22 || playerHandPc.getValue() < 22) {//len skuska ci funguju veci
 
 			System.out.println("\"n\" for next card else for stop ...");
 			if (sc.nextLine().equals("n")) {
-				playerHandHuman.addCard(deck.getNextCard());
-				System.out.println(playerHandHuman.getHandOwner() + ": More please.");
+				System.out.println(playerHandHuman.getHandOwnerName() + ": More please.");
+				giveCardTo(playerHandHuman);
 				System.out.println();
 			} else {
-				System.out.println(playerHandHuman.getHandOwner() + ": Enough.");
+				System.out.println(playerHandHuman.getHandOwnerName() + ": Enough.");
 				System.out.println();
 			}
-			playerHandHuman.showHandAdvanced();
 
-			System.out.println("");
+			System.out.println();
 			System.out.println("Ai turn...");
 			if (ai.wantNextCard()){
-				playerHandPc.addCard(deck.getNextCard());
-				System.out.println(playerHandPc.getHandOwner() + ": More please.");
+				System.out.println(playerHandPc.getHandOwnerName() + ": More please.");
+				giveCardTo(playerHandPc);
 				System.out.println();
 			} else {
-				System.out.println(playerHandPc.getHandOwner() + ": Enough.");
+				System.out.println(playerHandPc.getHandOwnerName() + ": Enough.");
 				System.out.println();
 			}
-			playerHandPc.showHandAdvanced();
 
 			System.out.println("══════════════════════════ End of round " + round++ + "══════════════════════════");
 		}
+		System.out.println("More than 22!");
+	}
+
+	private void dealFirstRound() {
+		giveCardTo(playerHandHuman);
+		giveCardTo(playerHandPc);
+	}
+
+	private void giveCardTo(Hand playerHand) {
+		playerHand.addCard(deck.getNextCard());
+		playerHand.showHandAdvanced();
+		System.out.println("Player: " + playerHand.getHandOwnerName() + " Total:" + playerHand.getValue());
 	}
 }
