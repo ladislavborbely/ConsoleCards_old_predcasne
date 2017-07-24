@@ -7,7 +7,6 @@ import game.enums.CardType;
  * 
  * @author Ladislav Borbely
  * @version 0.1
- * @since 23. 7. 2017
  * 
  *        Prazdna karta
  *
