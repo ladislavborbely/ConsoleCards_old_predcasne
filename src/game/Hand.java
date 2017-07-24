@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * 
  * @author Ladislav Borbely
  * @version 0.1
- * @since 23. 7. 2017
  *
  */
 public class Hand {
