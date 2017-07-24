@@ -17,15 +17,15 @@ public class Table {
 		if (value.length() == 1) {
 			value += " "; // other than 10
 		}
-		half[0] = "┏━━━━━━━"; //8
-		half[1] = "┃ " + color + "        ";
-		half[2] = "┃ " + value + "  ";
-		half[3] = "┃     ";
-		half[4] = "┃     ";
-		half[5] = "⎢     ";
-		half[6] = "⎢     ";
-		half[7] = "┃     ";
-		half[8] = "┗━━━━━━━";
+		half[0] = "╔═════"; //8
+		half[1] = "║ " + value + "  ";
+		half[2] = "║ " + color + "   ";
+		half[3] = "║     ";
+		half[4] = "║     ";
+		half[5] = "║     ";
+		half[6] = "║     ";
+		half[7] = "║     ";
+		half[8] = "╚═════";
 		return half;
 
 	}
@@ -35,15 +35,15 @@ public class Table {
 		if (value.length() == 1) {
 			value += " "; // other than 10
 		}
-		half[0] = "━━━━━━━┓"; //8
-		half[1] = "                ┃";
-		half[2] = "      ┃";
-		half[3] = "      ┃";
-		half[4] = "      ┃";
-		half[5] = "      ┃";
-		half[6] = "    " + color + " ┃";
-		half[7] = "  " + value + "  ┃";
-		half[8] = "━━━━━━━┛";
+		half[0] = "═════╗"; //8
+		half[1] = "     ║";
+		half[2] = "     ║";
+		half[3] = "     ║";
+		half[4] = "     ║";
+		half[5] = "     ║";
+		half[6] = " " + value + "  ║";
+		half[7] = "  " + color + "  ║";
+		half[8] = "═════╝";
 		return half;
 	}
 
