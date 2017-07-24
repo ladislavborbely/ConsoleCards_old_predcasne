@@ -77,18 +77,17 @@ public class Table {
 		return first;
 	}
 
-
 	public void printHandRepresentation(ArrayList<Card> hand) {
-		String allCards[] = { "╔", "║", "║", "║", "║", "║", "║", "║", "╚" };
+		String allCards[] = { "╔", "║", "║", "║", "║", "║", "║", "║", "╚" };//first part
 		for(Card card: hand){
-			if (allCards[0].length() == 1) {
+			if (allCards[0].length() == 1) {//at the beginning the start is set
 				allCards = mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
-			} else {
+			} else {//else add middle part
 				mergeCards(allCards, printMidCard());
 				mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
 			}
 		}
-		allCards = mergeCards(allCards, printHalfCardright(hand.get(hand.size() - 1).getSymbolOfColor(), hand.get(hand.size() - 1).getSymbol()));
+		allCards = mergeCards(allCards, printHalfCardright(hand.get(hand.size() - 1).getSymbolOfColor(), hand.get(hand.size() - 1).getSymbol()));//finish the card
 
 		for (String row : allCards) {
 			System.out.println(row);
