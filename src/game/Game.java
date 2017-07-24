@@ -16,11 +16,12 @@ import game.ai.AiSimple;
 
 public class Game {
 
-	private static Scanner sc = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
+	private Hand playerHandHuman = new Hand("Laco");
+	private Hand playerHandPc = new Hand("Ai simple");
 
-	public static void main(String[] args) {
-		Hand playerHandHuman = new Hand("Laco");
-		Hand playerHandPc = new Hand("Ai simple");
+	public void run() {
+
 		Deck deck = new Deck();
 		AiSimple ai = new AiSimple(playerHandPc);
 		int round = 1;
@@ -36,7 +37,6 @@ public class Game {
 		playerHandPc.showHandAdvanced();
 
 		System.out.println("══════════════════════════ End of round " + round++ + "══════════════════════════");
-
 
 		while (true) {//len skuska ci funguju veci
 
