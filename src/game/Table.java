@@ -17,15 +17,15 @@ public class Table {
 		if (value.length() == 1) {
 			value += " "; // other than 10
 		}
-		half[0] = "╔═════"; //8
-		half[1] = "║ " + value + "  ";
-		half[2] = "║ " + color + "   ";
-		half[3] = "║     ";
-		half[4] = "║     ";
-		half[5] = "║     ";
-		half[6] = "║     ";
-		half[7] = "║     ";
-		half[8] = "╚═════";
+		half[0] = "═════"; //8
+		half[1] = " " + value + "  ";
+		half[2] = " " + color + "   ";
+		half[3] = "     ";
+		half[4] = "     ";
+		half[5] = "     ";
+		half[6] = "     ";
+		half[7] = "     ";
+		half[8] = "═════";
 		return half;
 
 	}
@@ -41,10 +41,26 @@ public class Table {
 		half[3] = "     ║";
 		half[4] = "     ║";
 		half[5] = "     ║";
-		half[6] = " " + value + "  ║";
+		half[6] = "  " + value + " ║";
 		half[7] = "  " + color + "  ║";
 		half[8] = "═════╝";
 		return half;
+	}
+
+	private String[] printMidCard() {
+		String[] half = new String[9];
+
+		half[0] = "╦"; //8
+		half[1] = "║";
+		half[2] = "║";
+		half[3] = "║";
+		half[4] = "║";
+		half[5] = "║";
+		half[6] = "║";
+		half[7] = "║";
+		half[8] = "╩";
+		return half;
+
 	}
 
 	/**
@@ -63,9 +79,14 @@ public class Table {
 
 
 	public void printHandRepresentation(ArrayList<Card> hand) {
-		String[] allCards = { "", "", "", "", "", "", "", "", "" };
+		String allCards[] = { "╔", "║", "║", "║", "║", "║", "║", "║", "╚" };
 		for(Card card: hand){
-			allCards = mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
+			if (allCards[0].length() == 1) {
+				allCards = mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
+			} else {
+				mergeCards(allCards, printMidCard());
+				mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
+			}
 		}
 		allCards = mergeCards(allCards, printHalfCardright(hand.get(hand.size() - 1).getSymbolOfColor(), hand.get(hand.size() - 1).getSymbol()));
 
@@ -73,6 +94,5 @@ public class Table {
 			System.out.println(row);
 		}
 	}
-
 }
 
