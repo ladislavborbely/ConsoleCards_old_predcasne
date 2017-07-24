@@ -30,9 +30,11 @@ public class Play {
 		//prve rozdanie
 		playerHandPc.addCard(deck.getNextCard());
 		playerHandHuman.addCard(deck.getNextCard());
+		playerHandHuman.showHandAdvanced();
+		playerHandPc.showHandAdvanced();
 
-		playerHandPc.showHandSimple();
-		playerHandHuman.showHandSimple();
+		System.out.println("══════════════════════════ End of round " + round++ + "══════════════════════════");
+
 
 		while (true) {//len skuska ci funguju veci
 
@@ -45,7 +47,6 @@ public class Play {
 				System.out.println(playerHandHuman.getHandOwner() + ": Enough.");
 				System.out.println();
 			}
-			playerHandHuman.showHandSimple();
 			playerHandHuman.showHandAdvanced();
 
 			System.out.println("");
@@ -58,10 +59,9 @@ public class Play {
 				System.out.println(playerHandPc.getHandOwner() + ": Enough.");
 				System.out.println();
 			}
-			playerHandPc.showHandSimple();
 			playerHandPc.showHandAdvanced();
 
-			System.out.println("---End of round " + round++ + "-----------------------------------------------------");
+			System.out.println("══════════════════════════ End of round " + round++ + "══════════════════════════");
 		}
 	}
 }
