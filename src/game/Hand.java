@@ -38,6 +38,11 @@ public class Hand {
 		System.out.println();
 	}
 
+	public void showHandAdvanced() {
+		Table show = new Table();
+		show.printHandRepresentation(handCards);
+	}
+
 	public String getHandOwner() {
 		return name;
 	}

@@ -13,21 +13,37 @@ import java.util.ArrayList;
 
 public class Table {
 
-	private String[] printHalfCard(char color, String value) {
-		String[] half = new String[10];
+	private String[] printHalfCardLeft(char color, String value) {
+		String[] half = new String[9];
 		if (value.length() == 1) {
 			value += " "; // other than 10
 		}
-		half[0] = "┏━━━━━"; //6
-		half[1] = "┃";
-		half[2] = "┃  " + color + "  ";
-		half[3] = "┃ " + value + "  ";
-		half[4] = "┃    ";
-		half[5] = "┃    ";
-		half[6] = "┃    ";
-		half[7] = "┃    ";
-		half[8] = "┃    ";
-		half[9] = "┗━━━━━";
+		half[0] = "┏━━━━━━━"; //8
+		half[1] = "┃ " + color + "        ";
+		half[2] = "┃ " + value + "  ";
+		half[3] = "┃     ";
+		half[4] = "┃     ";
+		half[5] = "┃     ";
+		half[6] = "┃     ";
+		half[7] = "┃     ";
+		half[8] = "┗━━━━━━━";
+		return half;
+	}
+
+	private String[] printHalfCardright(char color, String value) {
+		String[] half = new String[9];
+		if (value.length() == 1) {
+			value += " "; // other than 10
+		}
+		half[0] = "━━━━━━━┓"; //8
+		half[1] = "                ┃";
+		half[2] = "      ┃";
+		half[3] = "      ┃";
+		half[4] = "      ┃";
+		half[5] = "      ┃";
+		half[6] = "    " + color + " ┃";
+		half[7] = "  " + value + "  ┃";
+		half[8] = "━━━━━━━┛";
 		return half;
 	}
 
@@ -47,8 +63,14 @@ public class Table {
 
 
 	public void printHandRepresentation(ArrayList<Card> hand) {
+		String[] allCards = { "", "", "", "", "", "", "", "", "" };
 		for(Card card: hand){
-			//hand
+			allCards = mergeCards(allCards, printHalfCardLeft(card.getSymbolOfColor(), card.getSymbol()));
+		}
+		allCards = mergeCards(allCards, printHalfCardright(hand.get(hand.size() - 1).getSymbolOfColor(), hand.get(hand.size() - 1).getSymbol()));
+
+		for (String row : allCards) {
+			System.out.println(row);
 		}
 	}
 

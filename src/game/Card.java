@@ -24,7 +24,7 @@ public class Card {
 		this.value = nameValue.getValue();
 	}
 
-	public String getName() {
+	public String getSymbol() {
 		return name;
 	}
 
@@ -32,9 +32,10 @@ public class Card {
 		return color.toString();
 	}
 
-	public char getSymbol() {
+	public char getSymbolOfColor() {
 		return symbolOfColor;
 	}
+
 
 	public byte getValue() {
 		return value;

@@ -22,6 +22,8 @@ public class Play {
 	public static void main(String[] args) {
 		Deck deck = new Deck();
 		AiSimple ai = new AiSimple(playerHandPc);
+		int round = 1;
+
 		deck.generate();
 		deck.shuffle();
 
@@ -38,17 +40,26 @@ public class Play {
 			if (sc.nextLine().equals("n")) {
 				playerHandHuman.addCard(deck.getNextCard());
 				System.out.println(playerHandHuman.getHandOwner() + ": More please.");
+				System.out.println();
 			} else {
 				System.out.println(playerHandHuman.getHandOwner() + ": Enough.");
+				System.out.println();
 			}
 			playerHandHuman.showHandSimple();
+			playerHandHuman.showHandAdvanced();
+
 			if (ai.wantNextCard()){
 				playerHandPc.addCard(deck.getNextCard());
 				System.out.println(playerHandPc.getHandOwner() + ": More please.");
+				System.out.println();
 			} else {
 				System.out.println(playerHandHuman.getHandOwner() + ": Enough.");
+				System.out.println();
 			}
 			playerHandPc.showHandSimple();
+			playerHandPc.showHandAdvanced();
+
+			System.out.println("---End of round " + round++ + "-----------------------------------------------------");
 		}
 	}
 }
