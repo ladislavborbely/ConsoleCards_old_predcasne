@@ -38,6 +38,12 @@ public class Game {
 		System.out.println("More than 22!");
 	}
 
+	/**
+	 * Player choice
+	 * 
+	 * @return true for more cards, false for no more cards
+	 */
+
 	private boolean playerChoice() {
 		System.out.println("Press \"n\" for next card, any other key stop ...");
 		if (sc.nextLine().equals("n")) {
@@ -63,7 +69,6 @@ public class Game {
 			System.out.println(playerHandPc.getHandOwnerName() + ": Enough.");
 			hand.setLock(true);
 		}
-
 	}
 
 	/**

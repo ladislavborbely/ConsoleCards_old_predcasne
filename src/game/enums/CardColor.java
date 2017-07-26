@@ -8,7 +8,6 @@ package game.enums;
  *
  */
 
-
 public enum CardColor {
 	//srdce ♥,pika ♠,kriz ♣,karo
 	SRDCE('♥'), PIKA('♠'), KRIZ('♣'), KARO('♦');
