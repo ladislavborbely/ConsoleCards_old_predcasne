@@ -35,7 +35,8 @@ public class Game {
 			doesPlayerWantAcard(ai.wantNextCard(), playerHandPc);
 			printEndOfTurn();
 		}
-		System.out.println("More than 22!");
+
+		System.out.println(playerHandHuman.getValue() >= 22 ? "Human player looses" : "AI player looses");
 	}
 
 	/**
