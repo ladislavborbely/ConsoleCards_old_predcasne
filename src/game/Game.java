@@ -18,6 +18,7 @@ public class Game {
 	private Hand playerHandPc = new Hand("Ai simple");
 	private Deck deck = new Deck();
 	private int round = 1;
+	private boolean end = false;
 
 	/**
 	 * Run the game
@@ -30,13 +31,35 @@ public class Game {
 		dealFirstRound();
 		printEndOfTurn();
 
-		while (playerHandHuman.getValue() < 22 && playerHandPc.getValue() < 22) {//len skuska ci funguju veci
+		while (!end) {//len skuska ci funguju veci
 			doesPlayerWantAcard(playerChoice(), playerHandHuman);
 			doesPlayerWantAcard(ai.wantNextCard(), playerHandPc);
 			printEndOfTurn();
+
+			if (playerHandHuman.getValue() > 21 && playerHandPc.getValue() > 21) { // both have more than 21 -- needs fix
+				System.out.println(playerHandHuman.getValue() >= 22 ? "Human player looses" : "AI player looses");
+				end = true;
+				break;
+			}
+			if (playerHandHuman.getValue() > 21 || playerHandPc.getValue() > 21) { // some has more than 21
+				System.out.println(playerHandHuman.getValue() >= 22 ? "Human player looses" : "AI player looses");
+				end = true;
+				break;
+			}
+			if ((playerHandHuman.getLock() && playerHandPc.getLock()) && (playerHandHuman.getValue() == playerHandPc.getValue())) {//no one wants a card and values are equal
+				System.out.println("Draw!");
+				end = true;
+				break;
+			}
+			if (playerHandHuman.getLock() && playerHandPc.getLock()) { //players do not want more cards
+				System.out.println("Hands down, lets compare > " + playerHandHuman.getHandOwnerName() + " has: " + playerHandHuman.getValue() + ", " + playerHandPc.getHandOwnerName() + " has: "
+						+ playerHandPc.getValue());
+				end = true;
+				break;
+			}
 		}
 
-		System.out.println(playerHandHuman.getValue() >= 22 ? "Human player looses" : "AI player looses");
+		System.out.println("End of game.");
 	}
 
 	/**
@@ -46,7 +69,7 @@ public class Game {
 	 */
 
 	private boolean playerChoice() {
-		System.out.println("Press \"n\" for next card, any other key stop ...");
+		System.out.println("Press \"n\" for next card, any other key to stop ...");
 		if (sc.nextLine().equals("n")) {
 			return true;
 		} else {
@@ -96,5 +119,6 @@ public class Game {
 		hand.addCard(deck.getNextCard());
 		hand.showHandAdvanced();
 		System.out.println("Player: " + hand.getHandOwnerName() + " Total:" + hand.getValue());
+		System.out.println();
 	}
 }
