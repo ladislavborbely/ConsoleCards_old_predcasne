@@ -4,14 +4,11 @@ import java.util.Scanner;
 
 import game.ai.AiSimple;
 
-
 /**
- * 
  * Simple game logic, for now just a test of other classes!
  * 
  * @author Ladislav Borbely
  * @version 0.1 (23. 7. 2017)
- *
  */
 
 public class Game {
@@ -20,11 +17,10 @@ public class Game {
 	private Hand playerHandHuman = new Hand("Laco");
 	private Hand playerHandPc = new Hand("Ai simple");
 	private Deck deck = new Deck();
+	private int round = 1;
 
 	public void run() {
 		AiSimple ai = new AiSimple(playerHandPc);
-		int round = 1;
-
 		deck.generate();
 		deck.shuffle();
 		dealFirstRound();
@@ -40,6 +36,7 @@ public class Game {
 				System.out.println();
 			} else {
 				System.out.println(playerHandHuman.getHandOwnerName() + ": Enough.");
+				playerHandHuman.showHandAdvanced();
 				System.out.println();
 			}
 
@@ -51,6 +48,7 @@ public class Game {
 				System.out.println();
 			} else {
 				System.out.println(playerHandPc.getHandOwnerName() + ": Enough.");
+				playerHandPc.showHandAdvanced();
 				System.out.println();
 			}
 
@@ -59,14 +57,27 @@ public class Game {
 		System.out.println("More than 22!");
 	}
 
+	private void doesPlayerWantAcard(boolean next, Hand hand) {
+		if (next) { //next card = true
+			System.out.println(playerHandPc.getHandOwnerName() + ": More please.");
+			giveCardTo(hand);
+		} else { // no next card
+			System.out.println(playerHandPc.getHandOwnerName() + ": Enough.");
+			hand.setLock(true);
+		}
+
+	}
+
 	private void dealFirstRound() {
 		giveCardTo(playerHandHuman);
 		giveCardTo(playerHandPc);
 	}
 
-	private void giveCardTo(Hand playerHand) {
-		playerHand.addCard(deck.getNextCard());
-		playerHand.showHandAdvanced();
-		System.out.println("Player: " + playerHand.getHandOwnerName() + " Total:" + playerHand.getValue());
+	private void giveCardTo(Hand hand) {
+		hand.addCard(deck.getNextCard());
+		hand.showHandAdvanced();
+		System.out.println("Player: " + hand.getHandOwnerName() + " Total:" + hand.getValue());
 	}
+
+	// turn()
 }

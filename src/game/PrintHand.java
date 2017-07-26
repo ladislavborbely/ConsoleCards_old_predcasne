@@ -48,19 +48,8 @@ public class PrintHand {
 	}
 
 	private String[] generateMidCard() {
-		String[] half = new String[9];
-
-		half[0] = "╦"; //8
-		half[1] = "║";
-		half[2] = "║";
-		half[3] = "║";
-		half[4] = "║";
-		half[5] = "║";
-		half[6] = "║";
-		half[7] = "║";
-		half[8] = "╩";
+		String[] half = { "╦", "║", "║", "║", "║", "║", "║", "║", "╩" };
 		return half;
-
 	}
 
 	/**

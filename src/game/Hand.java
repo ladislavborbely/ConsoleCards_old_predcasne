@@ -15,6 +15,7 @@ public class Hand {
 	private int value = 0;
 	private ArrayList<Card> handCards = new ArrayList<>();
 	private String name;
+	private boolean lock = false;
 
 	public Hand(String name) {
 		this.name = name;
@@ -54,5 +55,13 @@ public class Hand {
 	public void discardCards() {
 		handCards.clear();
 		System.out.println(name + " has empty hand value: " + value);
+	}
+
+	public void setLock(boolean lock) {
+		this.lock = lock;
+	}
+
+	public boolean getLock() {
+		return lock;
 	}
 }
