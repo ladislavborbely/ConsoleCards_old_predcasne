@@ -87,10 +87,10 @@ public class Game {
 	 */
 	private void doesPlayerWantAcard(boolean nextCard, Hand hand) {
 		if (nextCard) { //next card = true
-			System.out.println(playerHandPc.getHandOwnerName() + ": More please.");
+			System.out.println(hand.getHandOwnerName() + ": More please.");
 			giveCardTo(hand);
 		} else { // no next card
-			System.out.println(playerHandPc.getHandOwnerName() + ": Enough.");
+			System.out.println(hand.getHandOwnerName() + ": Enough.");
 			hand.setLock(true);
 		}
 	}
